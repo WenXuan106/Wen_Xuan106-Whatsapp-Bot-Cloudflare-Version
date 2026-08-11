@@ -1,0 +1,22 @@
+name = "wa-link"
+main = "src/worker.js"
+compatibility_date = "2026-08-01"
+# REQUIRED: Baileys assumes Node's Buffer/crypto/events APIs exist globally.
+# nodejs_compat provides polyfills for a lot of this, but NOT all of it —
+# see the "known risk" notes at the bottom of the README section of this
+# response. Test locally with `wrangler dev` and watch for errors like
+# "X is not a function" or "X is not defined" from inside Baileys itself.
+compatibility_flags = ["nodejs_compat"]
+
+[[durable_objects.bindings]]
+name = "WA_SESSION"
+class_name = "WhatsAppSession"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["WhatsAppSession"]
+
+# Serves public/index.html, app.js, style.css as static assets.
+[assets]
+directory = "./public"
+binding = "ASSETS"

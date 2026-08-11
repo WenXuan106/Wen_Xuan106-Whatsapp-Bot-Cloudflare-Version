@@ -1,0 +1,20 @@
+{
+  "name": "wa-link-cf",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@whiskeysockets/baileys": "^6.7.22",
+    "axios": "^1.7.7",
+    "google-tts-api": "^2.0.2",
+    "qrcode": "^1.5.3",
+    "yt-search": "^2.10.4"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}
