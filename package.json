@@ -12,7 +12,11 @@
     "axios": "^1.7.7",
     "google-tts-api": "^2.0.2",
     "qrcode": "^1.5.3",
-    "yt-search": "^2.10.4"
+    "yt-search": "^2.10.4",
+    "qrcode-terminal": "file:./stubs/empty",
+    "link-preview-js": "file:./stubs/empty",
+    "jimp": "file:./stubs/empty",
+    "sharp": "file:./stubs/empty"
   },
   "devDependencies": {
     "wrangler": "^3.90.0"
