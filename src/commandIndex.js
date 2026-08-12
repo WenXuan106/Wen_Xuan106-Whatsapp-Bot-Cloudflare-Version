@@ -5,24 +5,7 @@
 // imported explicitly here. When you add a new file to commands/, add one
 // line here too; it will NOT be picked up automatically like it was before.
 //
-// NOTE: copy the commands/ folder from the original repo into this
-// project unchanged first. Most command files should just work — they
-// only touch `sock`/`msg`/`jid` — EXCEPT any that use fs, path, or
-// node-webpmux. Grep for those (see the README section of this response)
-// and fix/remove them one at a time; don't assume the whole batch works.
-
-// anime and attp are deliberately excluded: both depend on lib/sticker.js,
-// which depends on node-webpmux — a native module that cannot be bundled
-// or run in a Workers V8 isolate. Re-add them only once you've replaced
-// lib/sticker.js with a pure-JS/WASM alternative.
-// song is excluded: it depends on yt-search, which does a dynamic
-// require("cheerio") internally. Workers' runtime (workerd) rejects any
-// require() call that survives to execution time — it only supports
-// requires esbuild can fully resolve and inline at build time. This
-// isn't fixable with a stub package like the sharp/jimp ones above,
-// since the problem is the *shape* of the require call, not a missing
-// module. Re-add only if you replace yt-search with a Workers-compatible
-// YouTube search method (e.g. calling YouTube's own API directly).
+// anime, attp, and song are deliberately excluded — see README for why.
 const modules = {
   "8ball": require("../commands/8ball"),
   admin: require("../commands/admin"),
