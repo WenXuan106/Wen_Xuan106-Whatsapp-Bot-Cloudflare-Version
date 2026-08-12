@@ -1,4 +1,5 @@
-name = "wa-link"
+# wrangler.toml
+name = 'wen-xuan106-whatsapp-bot-cloudflare-version'
 main = "src/worker.js"
 compatibility_date = "2026-08-01"
 # REQUIRED: Baileys assumes Node's Buffer/crypto/events APIs exist globally.
@@ -20,5 +21,3 @@ new_sqlite_classes = ["WhatsAppSession"]
 [assets]
 directory = "./public"
 binding = "ASSETS"
-# wrangler.toml
-name = 'wen-xuan106-whatsapp-bot-cloudflare-version'
