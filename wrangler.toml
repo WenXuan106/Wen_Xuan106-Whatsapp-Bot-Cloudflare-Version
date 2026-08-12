@@ -20,3 +20,5 @@ new_sqlite_classes = ["WhatsAppSession"]
 [assets]
 directory = "./public"
 binding = "ASSETS"
+# wrangler.toml
+name = 'wen-xuan106-whatsapp-bot-cloudflare-version'
