@@ -11,12 +11,14 @@
 // node-webpmux. Grep for those (see the README section of this response)
 // and fix/remove them one at a time; don't assume the whole batch works.
 
+// anime and attp are deliberately excluded: both depend on lib/sticker.js,
+// which depends on node-webpmux — a native module that cannot be bundled
+// or run in a Workers V8 isolate. Re-add them only once you've replaced
+// lib/sticker.js with a pure-JS/WASM alternative.
 const modules = {
   "8ball": require("../commands/8ball"),
   admin: require("../commands/admin"),
-  anime: require("../commands/anime"),
   answer: require("../commands/answer"),
-  attp: require("../commands/attp"), // uses node-webpmux — verify separately, likely needs replacing
   ban: require("../commands/ban"),
   civilguard: require("../commands/civilguard"),
   coinflip: require("../commands/coinflip"),
