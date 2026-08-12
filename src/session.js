@@ -18,6 +18,11 @@
 //     in toDataURL mode only (no native canvas), which is more likely
 //     to survive, but verify.
 
+// MUST be the first require in this file — patches crypto.pbkdf2Sync
+// before @whiskeysockets/baileys (required below) ever touches it. See
+// patchPbkdf2.js for why this exists.
+require("./patchPbkdf2");
+
 const {
   default: makeWASocket,
   DisconnectReason,
