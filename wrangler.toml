@@ -8,6 +8,15 @@ compatibility_date = "2026-08-01"
 # "X is not a function" or "X is not defined" from inside Baileys itself.
 compatibility_flags = ["nodejs_compat"]
 
+# Baileys' outbound connection to WhatsApp's servers goes through the 'ws'
+# npm package, which needs raw Node TCP/TLS sockets that Workers doesn't
+# provide — this is why pairing/QR both hung forever with no error before.
+# This aliases 'ws' to a shim built on Workers' native WebSocket instead,
+# so Baileys gets a working transport without any changes to its own code.
+# See src/wsShim.js for what's implemented and what's still unverified.
+[alias]
+"ws" = "./src/wsShim.js"
+
 [[durable_objects.bindings]]
 name = "WA_SESSION"
 class_name = "WhatsAppSession"
